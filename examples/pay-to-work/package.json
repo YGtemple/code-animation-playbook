@@ -1,0 +1,16 @@
+{
+  "name": "pay-to-work",
+  "version": "1.0.0",
+  "description": "自费 Token 上岗记 —— 80s 孟菲斯/波普风纯代码动画。",
+  "main": "render.js",
+  "scripts": {
+    "render": "node render_frames.js",
+    "sfx": "python3 sfx.py",
+    "metrics": "python3 metrics.py",
+    "encode": "bash encode.sh",
+    "all": "node render_frames.js && python3 sfx.py && python3 metrics.py && bash encode.sh"
+  },
+  "dependencies": {
+    "playwright-core": "^1.63.0"
+  }
+}

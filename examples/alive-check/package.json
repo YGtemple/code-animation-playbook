@@ -1,0 +1,16 @@
+{
+  "name": "alive-check",
+  "version": "1.0.0",
+  "description": "《活人感鉴定局》纯代码扁平风动画：HTML+SVG+JS / 无头 Chromium 逐帧 / numpy 声音 / ffmpeg。",
+  "main": "render.js",
+  "scripts": {
+    "render": "node render_frames.js",
+    "sfx": "python3 sfx.py",
+    "metrics": "python3 metrics.py",
+    "encode": "bash encode.sh",
+    "all": "node render_frames.js && python3 sfx.py && python3 metrics.py && bash encode.sh"
+  },
+  "dependencies": {
+    "playwright-core": "^1.63.0"
+  }
+}
