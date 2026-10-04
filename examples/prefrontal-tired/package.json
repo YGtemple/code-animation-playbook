@@ -1,0 +1,11 @@
+{
+  "name": "prefrontal-tired",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "render": "node render_frames.js",
+    "sfx": "python3 sfx.py",
+    "metrics": "python3 metrics.py",
+    "encode": "bash encode.sh"
+  }
+}
