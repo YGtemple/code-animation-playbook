@@ -1,0 +1,14 @@
+{
+  "name": "ai-unpaid",
+  "version": "1.0.0",
+  "description": "AI 不能欠薪 —— 等距3D isometric 深夜仪表盘风纯代码动画。",
+  "main": "render.js",
+  "scripts": {
+    "render": "node render_frames.js",
+    "sfx": "python sfx.py",
+    "metrics": "python metrics.py"
+  },
+  "dependencies": {
+    "playwright-core": "^1.63.0"
+  }
+}

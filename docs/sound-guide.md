@@ -135,7 +135,24 @@ stereo = stereo/np.max(np.abs(stereo)) * 10**(-1/20)     # 峰值归一到 −1d
 
 ---
 
-## 6. 声音铁律
+## 6. TTS 中文旁白与 ducking（v1.6 起，唯一的生成式例外）
+
+画面 / 音效 / 配乐仍全部纯代码；**旁白允许且必须用 TTS（`text_to_audio_plus`）生成**，再与纯代码床混音。
+
+1. **写克制旁白**：开场 1–2 句交代谁 / 在哪 / 处境，关键转折一句，结尾点题；单句短、句数少、不剧透笑点。
+2. **逐句生成、逐句裁静音**，按 cue 时间点对位；TTS 音频统一重采样到 48kHz、单声道→立体声、居中。
+3. **ducking**：由人声区间做包络，有人声处把床下压约 −9dB（满编曲可 −12～−18dB），attack/release 平滑；
+   编曲把 200Hz–2kHz 让给人声；金句处音乐收半拍。
+4. **防超时**：先量每句时长并在时间轴预演，放不下就对后段 atempo 微加速 / 前移，保证末句在 30.0s 前结束。
+5. **人声走单独总线并测其单独 RMS**；最终峰值 −1dBFS。
+6. **固定两版交付**：旁白版（配乐 + 人声，主推）、无旁白配乐版（同画面同配乐、无人声）。
+7. TTS 人声目录（`voice/`、`voices/`）已 gitignore，README 注明按文案重新生成。详见 [pitfalls P13](pitfalls.md)。
+
+参考实现：`examples/puppet-fortune/mix_voice.py`、`examples/ai-unpaid/mix.py`。
+
+---
+
+## 7. 声音铁律
 
 1. **任何"时间偏移"的包络，在触发点之前必须置零**：
    `np.where(t >= onset, exp(-(t-onset)*k), 0)`。否则 `t<onset` 时指数为正会爆（见 pitfalls）。

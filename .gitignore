@@ -8,6 +8,10 @@ frames/
 *.wav
 *.mp4
 
+# ---- TTS 旁白生成音频（用 text_to_audio_plus 按旁白文案重新生成，不入库）----
+voice/
+voices/
+
 # ---- Python ----
 __pycache__/
 *.pyc
