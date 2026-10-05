@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>冗余变量 X-07</title>
+<style>
+  /* 字体三处同步：@font-face / render_frames.js load 列表 / render.js font-family token */
+  @font-face { font-family:'SG';     src:url('fonts/SpaceGrotesk.ttf') format('truetype'); font-display:block; font-weight:100 900; }
+  @font-face { font-family:'ITF';    src:url('fonts/Inter.ttf')      format('truetype'); font-display:block; font-weight:100 900; }
+  @font-face { font-family:'SC';    src:url('fonts/NotoSansSC.ttf') format('truetype'); font-display:block; font-weight:100 900; }
+  html,body { margin:0; padding:0; background:#ffffff; overflow:hidden; }
+  #stage { width:1920px; height:1080px; display:block; }
+  text { user-select:none; }
+</style>
+</head>
+<body>
+<svg id="stage" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg"
+     preserveAspectRatio="xMidYMid meet">
+  <!-- 全部内容由 render.js 在加载时一次性建好 -->
+</svg>
+<script src="timeline.js"></script>
+<script src="render.js"></script>
+</body>
+</html>
