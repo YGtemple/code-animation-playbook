@@ -1,0 +1,18 @@
+{
+  "name": "pop-ibuprofen",
+  "version": "1.0.0",
+  "description": "Ep17 Electronic Ibuprofen - Lichtenstein pop-comic, code-only animation with TTS narration",
+  "main": "render.js",
+  "scripts": {
+    "render": "node render_frames.js",
+    "sfx": "python sfx.py",
+    "metrics": "python metrics.py",
+    "mix": "python mix_voice.py",
+    "encode": "powershell -File encode.ps1"
+  },
+  "dependencies": {
+    "playwright-core": "^1.63.0"
+  },
+  "author": "Doubao",
+  "license": "MIT"
+}

@@ -1,0 +1,38 @@
+[
+ {
+  "file": "voice/c_v1.wav",
+  "cue": 3.0,
+  "dur": 2.22,
+  "end": 5.22
+ },
+ {
+  "file": "voice/c_v2.wav",
+  "cue": 6.5,
+  "dur": 2.96,
+  "end": 9.46
+ },
+ {
+  "file": "voice/c_v3.wav",
+  "cue": 10.5,
+  "dur": 2.68,
+  "end": 13.18
+ },
+ {
+  "file": "voice/c_v4.wav",
+  "cue": 14.5,
+  "dur": 2.62,
+  "end": 17.12
+ },
+ {
+  "file": "voice/c_v5.wav",
+  "cue": 20.5,
+  "dur": 3.14,
+  "end": 23.64
+ },
+ {
+  "file": "voice/c_v6.wav",
+  "cue": 26.5,
+  "dur": 2.9,
+  "end": 29.4
+ }
+]
