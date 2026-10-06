@@ -147,8 +147,11 @@ stereo = stereo/np.max(np.abs(stereo)) * 10**(-1/20)     # 峰值归一到 −1d
 5. **人声走单独总线并测其单独 RMS**；最终峰值 −1dBFS。
 6. **固定两版交付**：旁白版（配乐 + 人声，主推）、无旁白配乐版（同画面同配乐、无人声）。
 7. TTS 人声目录（`voice/`、`voices/`）已 gitignore，README 注明按文案重新生成。详见 [pitfalls P13](pitfalls.md)。
+8. **工具可用性**：制作子代理环境里 `text_to_audio_plus` 可能不解析；此时由 Organizer 亲自逐句生成、下载后把本地 wav
+   路径交给子代理重混，**不要擅自改用 edge-tts / SAPI**。详见 [pitfalls P14](pitfalls.md)。
 
-参考实现：`examples/puppet-fortune/mix_voice.py`、`examples/ai-unpaid/mix.py`。
+参考实现：`examples/puppet-fortune/mix_voice.py`、`examples/ai-unpaid/mix.py`、
+`examples/clay-distill/mix_voice.py`、`examples/boot-selfcheck/mix_voice.py`（默片另见 `filmify.py` 管道胶片化）。
 
 ---
 
