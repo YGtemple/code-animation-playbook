@@ -143,7 +143,9 @@ stereo = stereo/np.max(np.abs(stereo)) * 10**(-1/20)     # 峰值归一到 −1d
 2. **逐句生成、逐句裁静音**，按 cue 时间点对位；TTS 音频统一重采样到 48kHz、单声道→立体声、居中。
 3. **ducking**：由人声区间做包络，有人声处把床下压约 −9dB（满编曲可 −12～−18dB），attack/release 平滑；
    编曲把 200Hz–2kHz 让给人声；金句处音乐收半拍。
-4. **防超时**：先量每句时长并在时间轴预演，放不下就对后段 atempo 微加速 / 前移，保证末句在 30.0s 前结束。
+4. **防超时**：先量每句"真实语音时长"并在时间轴预演（相邻句留 0.2–0.5s 气口、末句 ≤29.8s 收）。
+   偏长句**首选**用"语速正常偏快、句子紧凑、不拖长"的指令**重新生成**（自然无伪影）；只有末句等个别情况 atempo（≤1.3）。
+   多句 atempo>1.3 会发假，应避免。详见 [pitfalls P15](pitfalls.md)。
 5. **人声走单独总线并测其单独 RMS**；最终峰值 −1dBFS。
 6. **固定两版交付**：旁白版（配乐 + 人声，主推）、无旁白配乐版（同画面同配乐、无人声）。
 7. TTS 人声目录（`voice/`、`voices/`）已 gitignore，README 注明按文案重新生成。详见 [pitfalls P13](pitfalls.md)。
@@ -151,7 +153,8 @@ stereo = stereo/np.max(np.abs(stereo)) * 10**(-1/20)     # 峰值归一到 −1d
    路径交给子代理重混，**不要擅自改用 edge-tts / SAPI**。详见 [pitfalls P14](pitfalls.md)。
 
 参考实现：`examples/puppet-fortune/mix_voice.py`、`examples/ai-unpaid/mix.py`、
-`examples/clay-distill/mix_voice.py`、`examples/boot-selfcheck/mix_voice.py`（默片另见 `filmify.py` 管道胶片化）。
+`examples/clay-distill/mix_voice.py`、`examples/boot-selfcheck/mix_voice.py`（默片另见 `filmify.py` 管道胶片化）、
+`examples/mountain-dao/mix_voice.py`（青绿古琴/箫）、`examples/vhs-training/mix_voice.py`（VHS，另见 `post_vhs.py` 施加老化）。
 
 ---
 

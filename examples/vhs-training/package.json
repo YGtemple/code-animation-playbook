@@ -1,0 +1,18 @@
+{
+  "name": "vhs-training",
+  "version": "1.0.0",
+  "description": "员工培训录像带1995：如何体面地熬完这一天 —— 复古VHS纯代码动画",
+  "main": "render.js",
+  "scripts": {
+    "render": "node render_frames.js",
+    "post": "python post_vhs.py",
+    "sfx": "python sfx.py",
+    "metrics": "python metrics.py",
+    "encode": "powershell -File encode.ps1"
+  },
+  "dependencies": {
+    "playwright-core": "^1.63.0"
+  },
+  "author": "Doubao",
+  "license": "MIT"
+}
